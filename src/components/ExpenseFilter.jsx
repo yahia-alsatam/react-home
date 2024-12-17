@@ -1,3 +1,5 @@
+import { categories } from "../App";
+
 const ExpenseFilter = ({ onSelectCategory }) => {
   return (
     <>
@@ -6,9 +8,11 @@ const ExpenseFilter = ({ onSelectCategory }) => {
         onChange={(event) => onSelectCategory(event.target.value)}
       >
         <option value="">All category</option>
-        <option value="Groceries">Groceries</option>
-        <option value="Utilities">Utilities</option>
-        <option value="Entertainment">Entertainment</option>
+        {categories.map((category) => (
+          <option key={category} value={category}>
+            {category}
+          </option>
+        ))}
       </select>
     </>
   );
