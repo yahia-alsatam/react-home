@@ -1,7 +1,19 @@
+import { useState } from "react";
+import ExpenseList from "./components/ExpenseList";
+
 function App() {
+  const [expenses, setexpenses] = useState([
+    { id: 1, description: "aa", amount: 10, category: "Utilities" },
+    { id: 2, description: "bb", amount: 10, category: "Utilities" },
+    { id: 3, description: "cc", amount: 10, category: "Utilities" },
+    { id: 4, description: "dd", amount: 10, category: "Utilities" },
+  ]);
   return (
     <>
-      <div>hello</div>
+      <ExpenseList
+        expenses={expenses}
+        onDelete={(id) => setexpenses(expenses.filter((e) => e.id !== id))}
+      />
     </>
   );
 }
